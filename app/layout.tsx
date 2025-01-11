@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import '@/assets/styles/globals.css';
+import { APP_DESCRIPTION, APP_NAME, SERVER_URL } from "@/lib/constants";
 
 const roboto = Roboto({
   subsets: ['latin'],
@@ -8,8 +9,12 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Prostore",
-  description: "Modern ecommerce platform built with Next.js",
+  title: {
+    template: `%s | Prostore`,
+    default: APP_NAME,
+  },
+  description: APP_DESCRIPTION,
+  metadataBase: new URL(SERVER_URL),
 };
 
 export default function RootLayout({
@@ -22,7 +27,6 @@ export default function RootLayout({
       <body
         className={`${roboto.className} antialiased`}
       >
-        <h1>test</h1>
         {children}
       </body>
     </html>
