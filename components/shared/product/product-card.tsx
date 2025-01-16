@@ -1,19 +1,20 @@
-import Link from "next/link";
-import Image from "next/image";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import ProductPrice from "./product-price";
+import Link from 'next/link';
+import Image from 'next/image';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import ProductPrice from './product-price';
 
 const ProductCard = ({ product }: { product: any }) => {
-  return ( 
+  return (
     <Card className="w-full max-w-sm">
       <CardHeader className="p-0 items-center">
         <Link href={`/product/${product.slug}`}>
           <Image
-          src={product.images[0]}
-          alt={product.name}
-          height={300}
-          width={300}
-          priority={true}
+            src={product.images[0]}
+            alt={product.name}
+            height={300}
+            width={300}
+            priority={true}
+            className="rounded-lg"
           />
         </Link>
       </CardHeader>
@@ -24,7 +25,7 @@ const ProductCard = ({ product }: { product: any }) => {
         </Link>
         <div className="flex-between gap-4">
           <p>{product.rating} stars</p>
-          { product.stock > 0 ? (
+          {product.stock > 0 ? (
             <ProductPrice value={Number(product.price)} />
           ) : (
             <p className="text-destructive">Out Of stock</p>
@@ -32,7 +33,7 @@ const ProductCard = ({ product }: { product: any }) => {
         </div>
       </CardContent>
     </Card>
-   );
-}
- 
+  );
+};
+
 export default ProductCard;
