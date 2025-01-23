@@ -64,7 +64,7 @@ const ProductDetailsPage = async (props: { params: Promise<{ slug: string }> }) 
                 </div>
                 {product.stock > 0 && (
                   <div className="flex-center">
-                    <Button className="w-full">Add To Card</Button>
+                    <Button className="w-full">Add To Cart</Button>
                   </div>
                 )}
               </CardContent>
