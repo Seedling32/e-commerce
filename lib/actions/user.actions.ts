@@ -63,6 +63,6 @@ export async function signUpUser(prevState: unknown, formData: FormData) {
     if (isRedirectError(error)) {
       throw error;
     }
-    return { success: false, message: 'User was not aable to be registered.' };
+    return { success: false, message: 'User was not able to be registered.' };
   }
 }
