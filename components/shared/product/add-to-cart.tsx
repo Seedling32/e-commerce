@@ -26,7 +26,7 @@ const AddToCart = ({ item }: { item: CartItem }) => {
 
     // Handle successful addition to cart
     toast({
-      description: `${item.name} added to cart.`,
+      description: response.message,
       action: (
         <ToastAction
           className="bg-primary text-white hover:bg-gray-800"
