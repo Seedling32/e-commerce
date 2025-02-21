@@ -6,7 +6,7 @@ import { useTransition } from 'react';
 import { ShippingAddress } from '@/types';
 import { shippingAddressSchema } from '@/lib/validators';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
+import { useForm, ControllerRenderProps } from 'react-hook-form';
 import { z } from 'zod';
 import { shippingAddressDefaultValues } from '@/lib/constants';
 import {
