@@ -155,7 +155,7 @@ export async function createPayPalOrder(orderId: string) {
 }
 
 // Approve paypal order and update order to paid
-export async function approvePayPalOrder(orderId: string, data: { orderId: string }) {
+export async function approvePayPalOrder(orderId: string, data: { orderID: string }) {
   try {
     // Get order from database
     const order = await prisma.order.findFirst({
@@ -164,7 +164,7 @@ export async function approvePayPalOrder(orderId: string, data: { orderId: strin
 
     if (!order) throw new Error('Order not found.');
 
-    const captureData = await paypal.capturePayment(data.orderId);
+    const captureData = await paypal.capturePayment(data.orderID);
 
     if (
       !captureData ||
