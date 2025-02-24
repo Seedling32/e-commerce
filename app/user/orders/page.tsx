@@ -10,6 +10,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import Link from 'next/link';
+import Pagination from '@/components/shared/pagination';
 
 export const metadata: Metadata = {
   title: 'My Orders',
@@ -62,6 +63,9 @@ const OrdersPage = async (props: { searchParams: Promise<{ page: string }> }) =>
             ))}
           </TableBody>
         </Table>
+        {orders.totalPages > 1 && (
+          <Pagination page={Number(page) || 1} totalPages={orders?.totalPages} />
+        )}
       </div>
     </div>
   );
