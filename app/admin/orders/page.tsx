@@ -9,11 +9,12 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
-import { getAllOrders } from '@/lib/actions/order.actions';
+import { deleteOrder, getAllOrders } from '@/lib/actions/order.actions';
 import { requireAdmin } from '@/lib/auth-guard';
 import { formatCurrency, formatDateTime, formatId } from '@/lib/utils';
 import { Metadata } from 'next';
 import Link from 'next/link';
+import DeleteDialog from '@/components/shared/delete-dialog';
 
 export const metadata: Metadata = {
   title: 'Admin Orders',
@@ -62,13 +63,13 @@ const AdminOrdersPage = async (props: { searchParams: Promise<{ page: string }> 
                     ? formatDateTime(order.deliveredAt).dateTime
                     : 'Not Delivered'}
                 </TableCell>
-                <TableCell>
+                <TableCell className="flex gap-2">
                   <Button asChild variant="outline" size="sm">
                     <Link href={`/order/${order.id}`} className="rounded-lg hover:bg-gray-300">
                       Details
                     </Link>
                   </Button>
-                  {/* DELETE */}
+                  <DeleteDialog id={order.id} action={deleteOrder} />
                 </TableCell>
               </TableRow>
             ))}
