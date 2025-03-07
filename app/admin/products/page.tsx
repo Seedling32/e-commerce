@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllProducts } from '@/lib/actions/product.actions';
+import { getAllProducts, deleteProduct } from '@/lib/actions/product.actions';
 import { formatCurrency, formatId } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,6 +11,7 @@ import {
   TableRow,
 } from '@/components/ui/table';
 import Pagination from '@/components/shared/pagination';
+import DeleteDialog from '@/components/shared/delete-dialog';
 
 const AdminProductsPage = async (props: {
   searchParams: Promise<{
@@ -60,11 +61,11 @@ const AdminProductsPage = async (props: {
               <TableCell>{product.category}</TableCell>
               <TableCell>{product.stock}</TableCell>
               <TableCell>{product.rating}</TableCell>
-              <TableCell className="flex gap-1">
+              <TableCell className="flex gap-2">
                 <Button asChild variant="outline" size="sm">
                   <Link href={`/admin/products/${product.id}`}>Edit</Link>
-                  {/* DELETE */}
                 </Button>
+                <DeleteDialog id={product.id} action={deleteProduct} />
               </TableCell>
             </TableRow>
           ))}
