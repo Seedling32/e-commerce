@@ -56,6 +56,8 @@ export async function getAllProducts({
   return {
     data,
     totalPages: Math.ceil(dataCount / limit),
+    query,
+    category,
   };
 }
 
