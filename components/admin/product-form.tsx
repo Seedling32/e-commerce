@@ -15,7 +15,7 @@ import { Button } from '../ui/button';
 import { Textarea } from '../ui/textarea';
 import { Checkbox } from '../ui/checkbox';
 import { createProduct, updateProduct } from '@/lib/actions/product.actions';
-import { UploadButton, UploadDropzone } from '@/lib/uploadthing';
+import { UploadButton } from '@/lib/uploadthing';
 import { Card, CardContent } from '../ui/card';
 import Image from 'next/image';
 
