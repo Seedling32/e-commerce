@@ -3,6 +3,7 @@ import { Review } from '@/types';
 import { Divide } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
+import ReviewForm from './review-form';
 
 const ReviewList = ({
   userId,
@@ -19,7 +20,7 @@ const ReviewList = ({
     <div className="space-y-4">
       {reviews.length === 0 && <div>Be the first to leave a review.</div>}
       {userId ? (
-        <>{/* Review form here */}</>
+        <ReviewForm userId={userId} productId={productId} />
       ) : (
         <div>
           Please
