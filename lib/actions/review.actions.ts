@@ -8,7 +8,7 @@ import { prisma } from '@/db/prisma';
 import { revalidatePath } from 'next/cache';
 
 // Create and update reviews
-export async function creteUpdateReview(data: z.infer<typeof insertReviewSchema>) {
+export async function createUpdateReview(data: z.infer<typeof insertReviewSchema>) {
   try {
     const session = await auth();
     if (!session) throw new Error('User is not authenticated.');
